@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Boy Named Drew</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Rye&family=Oswald:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1f1a17;--cream:#f4ecdc;--sage:#6b6d5f;--tan:#cdb58b;--dark:#15110f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.6 Helvetica,Arial,sans-serif}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 28px;background:rgba(244,236,220,.92);backdrop-filter:blur(6px);z-index:10;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+nav a{color:var(--ink);text-decoration:none}nav .logo{font-size:28px;font-style:italic}
+.hero{background:var(--ink);padding:80px 28px 28px}
+.heroimg{display:block;width:100%;max-width:1300px;margin:0 auto;height:auto}
+.intro{padding:90px 28px}.intro h1{font-size:clamp(38px,6vw,80px);margin:0 0 32px;max-width:1200px}
+.intro p{max-width:1150px;margin:0}
+.about{background:var(--sage);color:#fff;padding:90px 28px}
+.grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:start}
+.about h2{font-size:clamp(56px,9vw,120px);margin:0 0 24px}
+.about .lead{font-size:clamp(30px,4vw,52px);margin:0 0 32px}
+.about p{margin:0 0 16px;max-width:620px}
+.about img{width:100%;display:block}
+.contact{padding:110px 28px 90px}
+.contact h2{text-align:center;font-size:clamp(52px,9vw,120px);margin:0 0 80px}
+.contact .grid{grid-template-columns:1fr 1fr;align-items:center}
+.contact .lead{font-size:clamp(32px,4vw,52px);margin:0}.contact .lead b{font-weight:700}
+form{display:grid;gap:22px}label{font-size:18px}label small{color:#666;font-size:14px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;font:inherit;color:var(--ink);border-radius:0}
+input:focus,textarea:focus,button:focus-visible{outline:2px solid #8a6d3b;outline-offset:3px}
+button{justify-self:start;background:var(--ink);color:var(--cream);border:0;padding:14px 34px;font:inherit;cursor:pointer}
+@media(max-width:800px){.grid,.contact .grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+</style></head><body>
+<nav><a class="logo serif" href="#top">A Boy Named Drew</a><a href="#contact">Contact</a></nav>
+
+<header class="hero" id="top"><img class="heroimg" alt="A Boy Named Drew — Drew Wilson sings Johnny Cash" src="images/hero.jpg"></header>
+
+<section class="intro"><h1 class="serif">A Boy Named Drew is a solo acoustic tribute celebrating the music and legacy of Johnny Cash.</h1>
+<p>Performed by Drew Wilson, the show features many of Cash's most beloved songs, including classics from Sun Records, Columbia Records, and the American Recordings era. Audiences can expect an authentic, heartfelt performance built around acoustic guitar, storytelling, and the timeless songs that made Johnny Cash one of America's most enduring artists.</p></section>
+
+<section class="about"><div class="grid"><div>
+<h2 class="serif">Meet Drew Wilson</h2>
+<p class="lead serif">Drew Wilson is a singer and guitarist who brings a love of Americana, folk, country, and rock music to the stage.</p>
+<p><b>A Boy Named Drew</b> pays tribute to one of America's most recognizable musical voices with a performance centered around the songs themselves.</p>
+<p>The goal isn't to simply recreate a Johnny Cash record.</p>
+<p>It's to bring the songs into the room and let the stories speak for themselves.</p>
+<p>Perfect for theaters, festivals, churches, wineries, community events, senior living communities, private parties, and country music venues, The Man in Black Acoustic Show brings the spirit of Johnny Cash to audiences of all ages.</p>
+</div><img alt="Drew Wilson on stage in front of a red curtain" src="images/drew.jpg"></div></section>
+
+<section class="contact" id="contact"><h2 class="serif">Let’s Book A Show!</h2><div class="grid">
+<p class="lead serif">Reach out today to schedule a consultation and discover how <b>A Boy Named Drew</b> can elevate your next event.</p>
+<form id="f"><div><label>Name</label><div class="row"><div><label><small>First Name (required)</small><input name="first_name" required></label></div><div><label><small>Last Name (required)</small><input name="last_name" required></label></div></div></div>
+<label>Email <small>(required)</small><input type="email" name="email" required></label>
+<label>Subject <small>(required)</small><input name="_subject" required></label>
+<label>Message <small>(required)</small><textarea name="message" rows="4" required></textarea></label>
+<button type="submit">Send message</button><p id="status" role="status" style="margin:0"></p></form></div></section>
+<script>
+const ENDPOINT="https://formspree.io/f/YOUR_FORM_ID"; // paste your Formspree form URL here
+const f=document.getElementById('f'),msg=document.getElementById('status');
+f.addEventListener('submit',async e=>{e.preventDefault();msg.textContent="Sending...";
+try{const r=await fetch(ENDPOINT,{method:"POST",body:new FormData(f),headers:{Accept:"application/json"}});
+if(r.ok){f.reset();msg.textContent="Thank you! Your message was sent. Drew will be in touch soon.";}
+else{msg.textContent="Something went wrong. Please email ABoyNamedDrew@proton.me directly.";}}
+catch(err){msg.textContent="Something went wrong. Please email ABoyNamedDrew@proton.me directly.";}});
+</script></body></html>
