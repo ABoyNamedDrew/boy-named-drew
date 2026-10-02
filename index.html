@@ -11,6 +11,12 @@ nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:64px;d
 nav a{color:var(--ink);text-decoration:none}nav .logo{font-size:28px;font-style:italic}
 .hero{background:var(--ink);padding:80px 28px 28px}
 .heroimg{display:block;width:100%;max-width:1300px;margin:0 auto;height:auto}
+.frame{position:relative;max-width:1300px;margin:0 auto;min-height:560px;background:radial-gradient(ellipse at 10% 5%,#6b4a1f 0,transparent 40%),var(--dark);border:2px solid #8a6d3b;outline:1px solid #8a6d3b;outline-offset:-10px;display:flex;align-items:center;justify-content:center;gap:4vw;padding:40px 24px;overflow:hidden}
+.title{text-align:center;font-family:Rye,serif;color:var(--tan);text-shadow:0 0 1px #000}
+.title .a{display:block;font-size:clamp(28px,5vw,64px);transform:rotate(-3deg);margin-bottom:6px}
+.title .b{display:block;font-size:clamp(70px,15vw,190px);line-height:.95}
+.title .c{display:block;font-family:Oswald,sans-serif;font-size:clamp(16px,2.2vw,28px);letter-spacing:.04em;margin-top:22px;border-top:1px solid #8a6d3b;padding-top:14px}
+.frame svg{width:clamp(110px,16vw,210px);flex:none}
 .intro{padding:90px 28px}.intro h1{font-size:clamp(38px,6vw,80px);margin:0 0 32px;max-width:1200px}
 .intro p{max-width:1150px;margin:0}
 .about{background:var(--sage);color:#fff;padding:90px 28px}
@@ -28,7 +34,7 @@ form{display:grid;gap:22px}label{font-size:18px}label small{color:#666;font-size
 input,textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:10px 0;font:inherit;color:var(--ink);border-radius:0}
 input:focus,textarea:focus,button:focus-visible{outline:2px solid #8a6d3b;outline-offset:3px}
 button{justify-self:start;background:var(--ink);color:var(--cream);border:0;padding:14px 34px;font:inherit;cursor:pointer}
-@media(max-width:800px){.grid,.contact .grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
+@media(max-width:800px){.grid,.contact .grid{grid-template-columns:1fr}.frame{flex-direction:column}.row{grid-template-columns:1fr}}
 </style></head><body>
 <nav><a class="logo serif" href="#top">A Boy Named Drew</a><a href="#contact">Contact</a></nav>
 
